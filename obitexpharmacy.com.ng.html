@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obitex Pharmacy | Premium Healthcare in Lagos</title>
+    <meta name="description" content="Obitex Pharmacy provides genuine medications, healthcare support, and wellness solutions in Mile 12, Lagos. Trusted by families for affordable and professional pharmaceutical care.">
+    
+    <!-- Fonts: Outfit for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            700: '#047857', // Primary Brand
+                            900: '#064e3b',
+                        },
+                        blue: {
+                            50: '#eff6ff',
+                            400: '#60a5fa', // Soft Blue
+                        },
+                        gold: {
+                            400: '#fbbf24', // Subtle Gold Accent
+                            500: '#f59e0b',
+                        },
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.05)',
+                        'glow': '0 0 20px rgba(4, 120, 87, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Premium Feel */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hero Overlay Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(6, 78, 59, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+        }
+
+        /* Animations */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .pulse-btn {
+            position: relative;
+        }
+        .pulse-btn::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            background-color: inherit;
+            z-index: -1;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        /* Modal Transition Utilities */
+        .modal-active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+        .modal-content-active {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+        }
+
+        /* Loader */
+        #loader {
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .floating-wa {
+            animation: bounce-slight 3s ease-in-out infinite;
+        }
+
+        /* Floating alert badge pulse */
+        .alert-glowing-pulse {
+            box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+            animation: alert-pulse 2s infinite;
+        }
+
+        @keyframes alert-pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(225, 29, 72, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+            }
+        }
+
+        @keyframes bounce-slight {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 overflow-x-hidden">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center">
+        <div class="relative w-20 h-20">
+            <div class="absolute inset-0 border-4 border-emerald-100 rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-emerald-700 rounded-full border-t-transparent animate-spin"></div>
+            <i class="ph-fill ph-pill text-emerald-700 text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+        </div>
+        <h2 class="mt-4 text-xl font-heading font-semibold text-emerald-900 tracking-wide">OBITEX</h2>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 bg-emerald-700 rounded-lg flex items-center justify-center text-white shadow-glow group-hover:scale-105 transition-transform">
+                        <i class="ph-bold ph-first-aid text-2xl"></i>
+                    </div>
+                    <span class="font-heading font-bold text-2xl text-emerald-900 tracking-tight">Obitex<span class="text-emerald-500">.</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-emerald-700 font-medium transition-colors">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-emerald-700 font-medium transition-colors">Services</a>
+                    <a href="#products" class="text-gray-700 hover:text-emerald-700 font-medium transition-colors">Products</a>
+                    <a href="#contact" class="text-gray-700 hover:text-emerald-700 font-medium transition-colors">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="https://wa.me/2348133600006" target="_blank" class="pulse-btn inline-flex items-center justify-center px-6 py-2.5 bg-emerald-700 text-white font-medium rounded-full hover:bg-emerald-800 transition-colors shadow-lg gap-2">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                        Order Now
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-emerald-700 focus:outline-none p-2 bg-white rounded-md shadow-sm">
+                        <i class="ph ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">About Us</a>
+                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">Our Services</a>
+                <a href="#products" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">Products</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">Location & Contact</a>
+                <a href="https://wa.me/2348133600006" target="_blank" class="mt-4 flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-700 hover:bg-emerald-800 gap-2">
+                    <i class="ph-fill ph-whatsapp-logo text-xl"></i> Order via WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Modern Pharmacy Interior" class="w-full h-full object-cover object-center" />
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <!-- Text Content -->
+            <div class="w-full md:w-2/3 text-left py-20" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/50 border border-emerald-500/30 text-emerald-100 text-sm font-medium mb-6 backdrop-blur-sm">
+                    <i class="ph-fill ph-shield-check text-gold-400"></i>
+                    Registered & Approved Pharmacy
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-tight mb-6">
+                    Trusted Healthcare <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+                        & Genuine Medications
+                    </span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light leading-relaxed">
+                    Obitex Pharmacy provides quality pharmaceutical products, healthcare support, wellness solutions, and trusted customer care for individuals and families in Lagos.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/2348133600006" target="_blank" class="pulse-btn inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-full text-white bg-emerald-600 hover:bg-emerald-500 transition-all shadow-[0_0_20px_rgba(4,120,87,0.5)] gap-2 group">
+                        <i class="ph-fill ph-whatsapp-logo text-2xl group-hover:scale-110 transition-transform"></i>
+                        Chat on WhatsApp
+                    </a>
+                    <a href="#location" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-full text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md transition-all gap-2">
+                        <i class="ph ph-map-pin text-xl"></i>
+                        Visit Our Store
+                    </a>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="mt-12 grid grid-cols-3 gap-4 border-t border-white/20 pt-8 max-w-lg">
+                    <div>
+                        <h4 class="text-2xl font-heading font-bold text-white">100%</h4>
+                        <p class="text-sm text-gray-300">Genuine Meds</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-heading font-bold text-white">24/7</h4>
+                        <p class="text-sm text-gray-300">Online Support</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-heading font-bold text-white">5k+</h4>
+                        <p class="text-sm text-gray-300">Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute bottom-0 right-0 w-full h-32 bg-gradient-to-t from-gray-50 to-transparent z-10"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image Side -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="Pharmacist helping a patient" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-emerald-900/10"></div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-xl shadow-xl border-l-4 border-emerald-500 animate-[bounce-slight_4s_ease-in-out_infinite]">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                                <i class="ph-fill ph-certificate text-emerald-700 text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium">Licensed by</p>
+                                <p class="font-heading font-bold text-gray-900">PCN Nigeria</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <span class="text-emerald-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Who We Are</span>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6 leading-tight">
+                        Your Trusted Partner in <span class="text-emerald-700">Health & Wellness</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        Located in the heart of Mile 12, Lagos, Obitex Pharmacy is committed to delivering premium pharmaceutical care. We believe that access to genuine medication and expert healthcare guidance is a fundamental right, not a luxury.
+                    </p>
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                        Our focus is on building trust through affordability, absolute professionalism, and a genuine commitment to our customers' wellbeing. Whether you need a simple over-the-counter remedy or specialized prescription management, our team is here to help.
+                    </p>
+
+                    <!-- Features List -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i>
+                            <span class="font-medium text-gray-800">Genuine Medications</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i>
+                            <span class="font-medium text-gray-800">Prescription Fills</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i>
+                            <span class="font-medium text-gray-800">Vitamins & Supplements</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i>
+                            <span class="font-medium text-gray-800">Baby Care Products</span>
+                        </div>
+                    </div>
+
+                    <a href="#services" class="inline-flex items-center gap-2 text-emerald-700 font-semibold hover:text-emerald-800 transition-colors group">
+                        Explore Our Services 
+                        <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-blue-500 font-semibold tracking-wider uppercase text-sm mb-2 block">Our Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Comprehensive Healthcare Solutions</h2>
+                <p class="text-gray-600 text-lg">We offer a wide range of pharmaceutical services and products designed to keep you and your family healthy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 relative z-10 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i class="ph-fill ph-prescription text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3 relative z-10">Prescription Medications</h3>
+                    <p class="text-gray-600 relative z-10">Accurate dispensing of genuine prescription drugs with professional guidance on dosage and interactions.</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 relative z-10 text-blue-600 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <i class="ph-fill ph-pills text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3 relative z-10">OTC Medicines</h3>
+                    <p class="text-gray-600 relative z-10">A wide selection of safe and effective over-the-counter remedies for everyday ailments and pain relief.</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold-50 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-6 relative z-10 text-gold-500 group-hover:bg-gold-400 group-hover:text-white transition-colors">
+                        <i class="ph-fill ph-plant text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3 relative z-10">Health & Wellness</h3>
+                    <p class="text-gray-600 relative z-10">Curated products supporting holistic health, including skincare, hygiene, and daily wellness items.</p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 relative z-10 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i class="ph-fill ph-heartbeat text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3 relative z-10">Vitamins & Supplements</h3>
+                    <p class="text-gray-600 relative z-10">Boost your immunity and vitality with our premium range of globally sourced vitamins and dietary supplements.</p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mb-6 relative z-10 text-pink-500 group-hover:bg-pink-400 group-hover:text-white transition-colors">
+                        <i class="ph-fill ph-baby text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3 relative z-10">Baby & Mother Care</h3>
+                    <p class="text-gray-600 relative z-10">Trusted products for maternal health, infant nutrition, gentle skincare, and essential baby accessories.</p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 relative z-10 text-blue-600 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <i class="ph-fill ph-activity text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-gray-900 mb-3 relative z-10">Free Health Checks</h3>
+                    <p class="text-gray-600 relative z-10">Complimentary basic vitals checking, including blood pressure monitoring and expert pharmaceutical consultations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-emerald-900 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">Why Lagos Families Trust Obitex Pharmacy</h2>
+                    <p class="text-emerald-100 text-lg mb-8 leading-relaxed">We go beyond just handing over medication. We are your neighbors, dedicated to ensuring you receive the highest standard of care without compromising on quality or affordability.</p>
+                    
+                    <a href="https://wa.me/2348034442590" class="inline-flex items-center gap-2 text-gold-400 font-semibold hover:text-gold-300 transition-colors group">
+                        Speak to a Pharmacist Today 
+                        <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
+                    <!-- Trust Indicator -->
+                    <div class="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 backdrop-blur-sm">
+                        <i class="ph-fill ph-shield-check text-gold-400 text-3xl mb-4"></i>
+                        <h4 class="text-lg font-bold mb-2">100% Genuine</h4>
+                        <p class="text-sm text-emerald-100">All products sourced directly from approved manufacturers.</p>
+                    </div>
+                    <div class="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 backdrop-blur-sm">
+                        <i class="ph-fill ph-users text-blue-400 text-3xl mb-4"></i>
+                        <h4 class="text-lg font-bold mb-2">Expert Team</h4>
+                        <p class="text-sm text-emerald-100">Experienced pharmacists ready to provide safe guidance.</p>
+                    </div>
+                    <div class="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 backdrop-blur-sm">
+                        <i class="ph-fill ph-wallet text-emerald-400 text-3xl mb-4"></i>
+                        <h4 class="text-lg font-bold mb-2">Affordable Care</h4>
+                        <p class="text-sm text-emerald-100">Competitive pricing to ensure healthcare is accessible to all.</p>
+                    </div>
+                    <div class="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700 backdrop-blur-sm">
+                        <i class="ph-fill ph-lightning text-yellow-400 text-3xl mb-4"></i>
+                        <h4 class="text-lg font-bold mb-2">Fast Service</h4>
+                        <p class="text-sm text-emerald-100">Quick dispensing in-store and rapid response on WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medicinal Drug Updates & Safety Alerts Section (2026) -->
+    <section id="safety-alerts" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold mb-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-600 animate-pulse"></span>
+                    2026 Live Safety & Clinical Bulletin
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Lagos Health News & Drug Updates</h2>
+                <p class="text-gray-600 text-lg">We help the Alapere & Mile 12 community stay informed with critical NAFDAC directives and global medicine breakthroughs.</p>
+            </div>
+
+            <!-- News Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                
+                <!-- Left: Critical Local Alerts (Lonart Directive) -->
+                <div class="bg-gradient-to-br from-rose-50/50 to-amber-50/50 rounded-3xl p-8 border border-rose-100 shadow-soft flex flex-col justify-between" data-aos="fade-right">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-rose-600/10 flex items-center justify-center text-rose-600">
+                                <i class="ph-fill ph-warning-octagon text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-rose-600 font-bold uppercase text-xs tracking-wider block">NAFDAC Directive</span>
+                                <h4 class="text-xl font-heading font-bold text-gray-900">Antimalarial Suspension Phase-out</h4>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            NAFDAC has issued an enforcement mandate ordering the phase-out of all multi-dose liquid Artemether/Lumefantrine suspensions (including bottle **Lonart Suspension** for children) due to rapid stability and efficacy loss after water dilution.
+                        </p>
+
+                        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-5 border border-amber-200 mb-6">
+                            <h5 class="font-bold text-amber-900 text-sm flex items-center gap-2 mb-2">
+                                <i class="ph-fill ph-info text-amber-500"></i>
+                                Obitex Customer Action Policy:
+                            </h5>
+                            <p class="text-xs text-gray-600 leading-relaxed mb-3">
+                                1. We have fully audited our shelves and do not dispense phased-out liquid bottles.<br>
+                                2. Parents are advised to transition pediatric patients to safer, NAFDAC-approved **dispersible tablets** (like Lonart Dispersible) which retain full malaria-fighting power.
+                            </p>
+                        </div>
+
+                        <!-- Anti-Scam Verification Warning -->
+                        <div class="border-t border-rose-100 pt-6">
+                            <h5 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                <i class="ph-fill ph-shield-warning text-rose-500"></i>
+                                Avoid "Lonart App" Verification Scams
+                            </h5>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                Greenlife Pharmaceuticals warns that there is <span class="font-semibold text-rose-600">no official Lonart app</span>. Always verify medications using the official Mobile Authentication Service (MAS) text shortcode.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive MAS Simulator -->
+                    <div class="bg-emerald-900 rounded-2xl p-5 text-white shadow-lg">
+                        <h6 class="font-heading font-bold text-sm flex items-center gap-2 mb-3 text-emerald-400">
+                            <i class="ph-fill ph-barcode"></i>
+                            Interactive MAS Product Validator
+                        </h6>
+                        <p class="text-xs text-emerald-100 mb-4">Scratch the silver panel on your pack, enter your 12-digit PIN below, and press verify to test the system.</p>
+                        <div class="flex gap-2">
+                            <input id="mas-pin" type="text" maxlength="12" placeholder="e.g. 123456789012" class="w-full bg-emerald-950/60 border border-emerald-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-emerald-400 focus:outline-none focus:border-emerald-500 transition-colors">
+                            <button onclick="verifyMasPin()" class="bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold px-4 py-2.5 rounded-xl text-sm transition-colors flex items-center gap-1 shrink-0">
+                                Verify Pack
+                            </button>
+                        </div>
+                        <div id="mas-output" class="hidden mt-3 p-3 rounded-lg text-xs leading-relaxed font-medium transition-all"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Global Clinical Breakthroughs -->
+                <div class="bg-gradient-to-br from-emerald-50/50 to-blue-50/50 rounded-3xl p-8 border border-emerald-100 shadow-soft flex flex-col justify-between" data-aos="fade-left">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-700/10 flex items-center justify-center text-emerald-700">
+                                <i class="ph-fill ph-sparkle text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-emerald-700 font-bold uppercase text-xs tracking-wider block">Global Breakthroughs</span>
+                                <h4 class="text-xl font-heading font-bold text-gray-900">Next-Gen Medicine Pipelines</h4>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-700 mb-8 leading-relaxed">
+                            The international medical horizon in 2026 has introduced groundbreaking therapeutic treatments aimed at significantly improving daily patient adherence, compliance, and convenience.
+                        </p>
+
+                        <!-- Breakthrough Cards -->
+                        <div class="space-y-4">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-2xl p-5 border border-emerald-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h5 class="font-heading font-bold text-gray-900 flex items-center gap-2">
+                                <i class="ph-fill ph-pill text-emerald-600"></i>
+                                Foundayo (Orforglipron)
+                            </h5>
+                            <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full uppercase">Obesity / Diabetes</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Approved oral daily pill designed as a non-peptide GLP-1 receptor agonist. It marks a needle-free transition away from older weight management injections.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-2xl p-5 border border-emerald-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h5 class="font-heading font-bold text-gray-900 flex items-center gap-2">
+                                <i class="ph-fill ph-syringe text-blue-600"></i>
+                                Awiqli (Insulin Icodec)
+                            </h5>
+                            <span class="text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full uppercase">Type 2 Diabetes</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            A newly approved once-weekly basal insulin injection. Replaces painful daily needles with a highly convenient single dose every 7 days.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-2xl p-5 border border-emerald-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h5 class="font-heading font-bold text-gray-900 flex items-center gap-2">
+                                <i class="ph-fill ph-heartbeat text-rose-600"></i>
+                                Baxfendy (Baxdrostat)
+                            </h5>
+                            <span class="text-[10px] font-bold bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full uppercase">Hypertension</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Targeted hypertension treatment for resistant blood pressure. Protects critical high-risk cardiac patients who have failed traditional therapy protocols.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-gray-100 text-xs text-gray-500">
+                Interested in these next-gen pipelines? <a href="https://wa.me/2348133600006" class="text-emerald-700 font-bold hover:underline">Contact our pharmacists</a> to enquire about importation & availability policies.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section id="products" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+            <div class="max-w-2xl">
+                <span class="text-emerald-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Premium Catalog</span>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">Featured Categories</h2>
+            </div>
+            <a href="https://wa.me/2348133600006" class="hidden md:inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-800">
+                Inquire via WhatsApp <i class="ph-bold ph-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Product Category 1 -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                    <!-- Placeholder Image -->
+                    <img src="https://images.unsplash.com/photo-1550572017-edb9b4f620cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vitamins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <a href="https://wa.me/2348133600006?text=I%20am%20inquiring%20about%20Vitamins%20and%20Supplements" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-heading font-bold text-lg text-gray-900">Vitamins & Multivits</h3>
+                    <p class="text-sm text-gray-500 mt-1">Immunity & Daily Health</p>
+                </div>
+            </div>
+
+            <!-- Product Category 2 -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pain Relief" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <a href="https://wa.me/2348133600006?text=I%20am%20inquiring%20about%20Pain%20Relief%20medications" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-heading font-bold text-lg text-gray-900">Pain Management</h3>
+                    <p class="text-sm text-gray-500 mt-1">Fast Acting Relief</p>
+                </div>
+            </div>
+
+            <!-- Product Category 3 -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <a href="https://wa.me/2348133600006?text=I%20am%20inquiring%20about%20Dermatology%20and%20Skincare" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-heading font-bold text-lg text-gray-900">Derma & Skincare</h3>
+                    <p class="text-sm text-gray-500 mt-1">Medical Grade Beauty</p>
+                </div>
+            </div>
+
+            <!-- Product Category 4 -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Baby Products" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <a href="https://wa.me/2348133600006?text=I%20am%20inquiring%20about%20Baby%20Care%20products" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-heading font-bold text-lg text-gray-900">Mother & Baby</h3>
+                    <p class="text-sm text-gray-500 mt-1">Gentle Care Essentials</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 text-center md:hidden">
+            <a href="https://wa.me/2348133600006" class="inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-800">
+                Inquire about other items <i class="ph-bold ph-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- WhatsApp CTA Banner -->
+<section class="py-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-800"></div>
+    <!-- Abstract Shapes -->
+    <div class="absolute -top-24 -right-24 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-400 opacity-20 rounded-full blur-3xl"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-xl animate-bounce-slight">
+            <i class="ph-fill ph-whatsapp-logo text-5xl text-emerald-600"></i>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">Order Your Medications Easily on WhatsApp</h2>
+        <p class="text-emerald-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto">Skip the queue. Speak directly with our team for medicine inquiries, healthcare support, prescription refills, and quick assistance.</p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://wa.me/2348133600006" target="_blank" class="w-full sm:w-auto pulse-btn bg-white text-emerald-800 hover:bg-gray-50 px-8 py-4 rounded-full text-lg font-bold transition-colors shadow-xl flex items-center justify-center gap-2">
+                <i class="ph-fill ph-chat-circle-text text-2xl"></i>
+                Message 08133600006
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <span class="text-emerald-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Premium Catalog</span>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">Featured Categories</h2>
+                </div>
+                <a href="https://wa.me/2348034442590" class="hidden md:inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-800">
+                    Inquire via WhatsApp <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product Category 1 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                        <!-- Placeholder Image -->
+                        <img src="https://images.unsplash.com/photo-1550572017-edb9b4f620cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vitamins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="https://wa.me/2348034442590?text=I%20am%20inquiring%20about%20Vitamins%20and%20Supplements" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-heading font-bold text-lg text-gray-900">Vitamins & Multivits</h3>
+                        <p class="text-sm text-gray-500 mt-1">Immunity & Daily Health</p>
+                    </div>
+                </div>
+
+                <!-- Product Category 2 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pain Relief" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="https://wa.me/2348034442590?text=I%20am%20inquiring%20about%20Pain%20Relief%20medications" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-heading font-bold text-lg text-gray-900">Pain Management</h3>
+                        <p class="text-sm text-gray-500 mt-1">Fast Acting Relief</p>
+                    </div>
+                </div>
+
+                <!-- Product Category 3 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skincare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="https://wa.me/2348034442590?text=I%20am%20inquiring%20about%20Dermatology%20and%20Skincare" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-heading font-bold text-lg text-gray-900">Derma & Skincare</h3>
+                        <p class="text-sm text-gray-500 mt-1">Medical Grade Beauty</p>
+                    </div>
+                </div>
+
+                <!-- Product Category 4 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="aspect-square bg-gray-100 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Baby Products" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="https://wa.me/2348034442590?text=I%20am%20inquiring%20about%20Baby%20Care%20products" class="w-full text-center bg-white text-emerald-900 font-semibold py-2 rounded-lg hover:bg-emerald-50 transition-colors">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-heading font-bold text-lg text-gray-900">Mother & Baby</h3>
+                        <p class="text-sm text-gray-500 mt-1">Gentle Care Essentials</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="https://wa.me/2348034442590" class="inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-800">
+                    Inquire about other items <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp CTA Banner -->
+    <section class="py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-800"></div>
+        <!-- Abstract Shapes -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-400 opacity-20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-xl animate-bounce-slight">
+                <i class="ph-fill ph-whatsapp-logo text-5xl text-emerald-600"></i>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">Order Your Medications Easily on WhatsApp</h2>
+            <p class="text-emerald-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto">Skip the queue. Speak directly with our team for medicine inquiries, healthcare support, prescription refills, and quick assistance.</p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/2348034442590" target="_blank" class="w-full sm:w-auto pulse-btn bg-white text-emerald-800 hover:bg-gray-50 px-8 py-4 rounded-full text-lg font-bold transition-colors shadow-xl flex items-center justify-center gap-2">
+                    <i class="ph-fill ph-chat-circle-text text-2xl"></i>
+                    Message +234 803 444 2590
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-gold-500 font-semibold tracking-wider uppercase text-sm mb-2 block">Reviews</span>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">What Our Community Says</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl relative" data-aos="fade-up" data-aos-delay="100">
+                    <i class="ph-fill ph-quotes text-4xl text-emerald-200 absolute top-6 right-6"></i>
+                    <div class="flex text-gold-400 mb-4">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Obitex Pharmacy is my go-to in Mile 12. Their staff is incredibly polite, and I always find my prescribed medications there. The WhatsApp ordering is a lifesaver!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold">OA</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Oluwaseun A.</h5>
+                            <p class="text-xs text-gray-500">Local Resident</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl relative" data-aos="fade-up" data-aos-delay="200">
+                    <i class="ph-fill ph-quotes text-4xl text-emerald-200 absolute top-6 right-6"></i>
+                    <div class="flex text-gold-400 mb-4">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Very professional setup. You can tell they care about standards. The pharmacist took time to explain my dosage clearly. Highly recommend for genuine drugs."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold">CJ</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Chinedu J.</h5>
+                            <p class="text-xs text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl relative" data-aos="fade-up" data-aos-delay="300">
+                    <i class="ph-fill ph-quotes text-4xl text-emerald-200 absolute top-6 right-6"></i>
+                    <div class="flex text-gold-400 mb-4">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Clean environment and well-stocked. I love that I can check availability on WhatsApp before walking down to Ajelogo market street. Great service."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-pink-700 font-bold">MF</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Mrs. Fatima</h5>
+                            <p class="text-xs text-gray-500">Mother of two</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section id="contact" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col lg:flex-row">
+                
+                <!-- Contact Info Side -->
+                <div class="w-full lg:w-1/3 bg-emerald-900 text-white p-10 lg:p-12 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-heading font-bold mb-2">Visit Us</h3>
+                        <p class="text-emerald-200 mb-10">We are conveniently located to serve the Mile 12 community.</p>
+
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-map-pin text-2xl text-gold-400"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg mb-1">Our Address</h5>
+                                    <p class="text-emerald-100 leading-relaxed text-sm">1, Ajelogo Street,<br>Alapere, Lagos, Nigeria</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-phone-call text-2xl text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg mb-1">Contact Details</h5>
+                                    <p class="text-emerald-100 text-sm mb-1">08133600006</p>
+                                    <p class="text-emerald-100 text-sm opacity-70">hello@obitexpharmacy.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="ph-fill ph-clock text-2xl text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg mb-1">Business Hours</h5>
+                                    <p class="text-emerald-100 text-sm mb-1">Mon - Sat: 8:00 AM - 9:00 PM</p>
+                                    <p class="text-emerald-100 text-sm">Sunday: 10:00 AM - 8:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 pt-8 border-t border-emerald-800">
+                        <p class="text-sm text-emerald-300">Need directions? Click the map to navigate via Google Maps.</p>
+                    </div>
+                </div>
+
+                <!-- Map Side -->
+                <div class="w-full lg:w-2/3 min-h-[400px] bg-gray-200 relative">
+                    <!-- Embedded Google Map using a general Lagos coordinate centered slightly towards Alapere/Mile 12 area -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2642598858807!2d3.3854199999999994!3d6.613349999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93478df8ccff%3A0x6b46487e384ebc93!2sAjelogo%20Rd%2C%20Ketu%2C%20Lagos!5e0!3m2!1sen!2sng!4v1710000000000!5m2!1sen!2sng" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: grayscale(20%) contrast(1.2);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="absolute inset-0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-300 pt-20 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Col -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-emerald-700 rounded-lg flex items-center justify-center text-white">
+                            <i class="ph-bold ph-first-aid text-2xl"></i>
+                        </div>
+                        <span class="font-heading font-bold text-2xl text-white tracking-tight">Obitex<span class="text-emerald-500">.</span></span>
+                    </a>
+                    <p class="text-sm leading-relaxed text-gray-400 mb-6">Providing quality pharmaceutical products, healthcare support, and trusted customer care for individuals and families in Lagos.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors"><i class="ph-fill ph-twitter-logo text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-heading font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="hover:text-emerald-400 transition-colors text-sm">About Us</a></li>
+                        <li><a href="#services" class="hover:text-emerald-400 transition-colors text-sm">Our Services</a></li>
+                        <li><a href="#products" class="hover:text-emerald-400 transition-colors text-sm">Featured Products</a></li>
+                        <li><a href="#contact" class="hover:text-emerald-400 transition-colors text-sm">Contact & Location</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div>
+                    <h4 class="text-white font-heading font-bold text-lg mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors text-sm">Prescription Fulfillment</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors text-sm">Over-The-Counter Meds</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors text-sm">Health Consultations</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors text-sm">Mother & Baby Care</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Short -->
+                <div>
+                    <h4 class="text-white font-heading font-bold text-lg mb-6">Get in Touch</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-map-pin text-emerald-500 mt-1"></i>
+                            <span class="text-sm text-gray-400">1, Ajelogo Street, Alapere, Lagos, Nigeria.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-whatsapp-logo text-emerald-500"></i>
+                            <a href="https://wa.me/2348133600006" class="text-sm text-gray-400 hover:text-white transition-colors">08133600006</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">&copy; 2024 Obitex Pharmacy. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Safety News Pop-Up Modal (Ad Style) -->
+    <div id="news-modal" class="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 ease-out">
+        <div id="news-modal-content" class="bg-white rounded-3xl shadow-2xl border border-rose-100 max-w-lg w-full overflow-hidden transform scale-90 opacity-0 transition-all duration-300 ease-out">
+            <!-- Alert Header Banner -->
+            <div class="bg-gradient-to-r from-rose-600 to-amber-500 p-6 text-white relative">
+                <button onclick="closeNewsModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors">
+                    <i class="ph-bold ph-x text-lg"></i>
+                </button>
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2.5 py-1 rounded-md bg-white/20 text-xs font-bold uppercase tracking-wider animate-pulse">Critical Alert</span>
+                    <span class="text-xs text-rose-100">Live 2026 NAFDAC Advisory</span>
+                </div>
+                <h4 class="text-2xl font-heading font-bold leading-tight">Antimalarial Drug Safety Enforcement</h4>
+            </div>
+
+            <!-- Pop-up Content -->
+            <div class="p-6">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-600 shrink-0">
+                        <i class="ph-fill ph-warning-octagon text-3xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-heading font-bold text-gray-900 mb-1">Lonart Suspension Phase-Out</h5>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            NAFDAC has ordered the immediate mop-up of all bottle multi-dose **Artemether/Lumefantrine liquid suspensions** due to stability loss after dilution. 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Alert Highlights -->
+                <div class="bg-rose-50/50 rounded-2xl p-4 border border-rose-100 space-y-3 mb-6">
+                    <div class="flex items-start gap-2 text-xs text-gray-700">
+                        <i class="ph-bold ph-caret-right text-rose-500 mt-0.5"></i>
+                        <span>Parents should switch from liquid bottles to NAFDAC-certified **dispersible tablets** for children.</span>
+                    </div>
+                    <div class="flex items-start gap-2 text-xs text-gray-700">
+                        <i class="ph-bold ph-caret-right text-rose-500 mt-0.5"></i>
+                        <span><strong>Beware of Scams:</strong> There is absolutely no official "Lonart Verification App". Use only official SMS shortcodes.</span>
+                    </div>
+                </div>
+
+                <!-- Call to Actions inside Modal -->
+                <div class="flex flex-col gap-3">
+                    <button onclick="scrollToSafetyAlerts()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-barcode text-lg"></i>
+                        Verify Your Pack Now
+                    </button>
+                    <button onclick="closeNewsModal()" class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-semibold py-3 px-4 rounded-xl text-sm transition-colors border border-gray-200">
+                        Acknowledge & Dismiss
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Health Alert Badge (Bottom Left) -->
+    <button id="alert-floating-badge" onclick="openNewsModal()" class="fixed bottom-6 left-6 z-50 alert-glowing-pulse bg-rose-600 hover:bg-rose-700 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+        <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+        </span>
+        <i class="ph-fill ph-warning-octagon text-lg"></i>
+        <span class="text-xs font-bold tracking-wider uppercase hidden sm:inline">2026 Drug Alerts</span>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/2348133600006" target="_blank" class="fixed bottom-6 right-6 z-50 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_4px_14px_0_rgba(16,185,129,0.39)] hover:bg-emerald-600 hover:scale-110 transition-all duration-300 floating-wa group">
+        <div class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-20"></div>
+        <i class="ph-fill ph-whatsapp-logo text-3xl relative z-10"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 bg-gray-900 text-white text-xs font-medium px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Chat with us
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Remove Loader
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    // Trigger safety news popup automatically after 2.5 seconds
+                    triggerAutoModal();
+                }, 500);
+            }, 800); // Small delay to show logo
+
+            // Initialize AOS Animation
+            AOS.init({
+                once: true,
+                offset: 100,
+                duration: 800,
+                easing: 'ease-out-cubic',
+            });
+
+            // Sticky Navbar Logic
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('glass-nav', 'shadow-sm');
+                    navbar.classList.remove('py-4');
+                    navbar.classList.add('py-3');
+                } else {
+                    navbar.classList.remove('glass-nav', 'shadow-sm');
+                    navbar.classList.add('py-4');
+                    navbar.classList.remove('py-3');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const menuLinks = menu.querySelectorAll('a');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                // Change icon based on state
+                const icon = btn.querySelector('i');
+                if (menu.classList.contains('hidden')) {
+                    icon.classList.remove('ph-x');
+                    icon.classList.add('ph-list');
+                } else {
+                    icon.classList.remove('ph-list');
+                    icon.classList.add('ph-x');
+                }
+            });
+
+            // Close mobile menu on link click
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    const icon = btn.querySelector('i');
+                    icon.classList.remove('ph-x');
+                    icon.classList.add('ph-list');
+                });
+            });
+        });
+
+        // Auto-trigger safety alert modal once per session
+        function triggerAutoModal() {
+            if (!sessionStorage.getItem('medicinal_popup_shown_2026')) {
+                setTimeout(() => {
+                    openNewsModal();
+                    sessionStorage.setItem('medicinal_popup_shown_2026', 'true');
+                }, 2000);
+            }
+        }
+
+        // Modal Open logic
+        function openNewsModal() {
+            const modal = document.getElementById('news-modal');
+            const modalContent = document.getElementById('news-modal-content');
+            
+            modal.classList.add('modal-active');
+            setTimeout(() => {
+                modalContent.classList.add('modal-content-active');
+            }, 50);
+        }
+
+        // Modal Close logic
+        function closeNewsModal() {
+            const modal = document.getElementById('news-modal');
+            const modalContent = document.getElementById('news-modal-content');
+
+            modalContent.classList.remove('modal-content-active');
+            setTimeout(() => {
+                modal.classList.remove('modal-active');
+            }, 150);
+        }
+
+        // Navigate to safety alert section from modal
+        function scrollToSafetyAlerts() {
+            closeNewsModal();
+            setTimeout(() => {
+                const safetySection = document.getElementById('safety-alerts');
+                if (safetySection) {
+                    safetySection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 300);
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('news-modal');
+            if (event.target === modal) {
+                closeNewsModal();
+            }
+        }
+
+        // Interactive MAS verification simulator
+        function verifyMasPin() {
+            const inputField = document.getElementById('mas-pin');
+            const outputBox = document.getElementById('mas-output');
+            const rawPin = inputField.value.trim();
+
+            if (!rawPin) {
+                showMasResult('Please enter a verification PIN.', 'bg-amber-950/80 border border-amber-600 text-amber-200');
+                return;
+            }
+
+            // Remove non-digits to test PIN length
+            const sanitizedPin = rawPin.replace(/\D/g, '');
+
+            if (sanitizedPin.length !== 12) {
+                showMasResult('⚠ INVALID PIN FORMAT: The Mobile Authentication Service (MAS) PIN must be exactly 12 digits. Please check the code scratched on your packaging.', 'bg-rose-950/80 border border-rose-600 text-rose-200');
+            } else {
+                showMasResult('✓ AUTHENTIC PRODUCT: Verification successful. This pack of Lonart Dispersible is certified genuine by NAFDAC and Greenlife Pharmaceuticals. (Batch: 2026-N2)', 'bg-emerald-950/80 border border-emerald-500 text-emerald-300');
+            }
+        }
+
+        function showMasResult(message, classString) {
+            const outputBox = document.getElementById('mas-output');
+            outputBox.className = `mt-3 p-3 rounded-lg text-xs leading-relaxed font-medium transition-all ${classString}`;
+            outputBox.innerHTML = message;
+            outputBox.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
